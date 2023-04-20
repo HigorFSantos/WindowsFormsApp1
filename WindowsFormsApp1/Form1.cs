@@ -40,15 +40,19 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("E-mail inválido");
             }
+
             senha = txtSenha.Text;
             if (senha.Length >= 8)
-            {
+            { 
                 MessageBox.Show("Senha Válida");
             }
             else
             {
                 MessageBox.Show("Senha Inválida");
             }
+
+            Form2 inicio = new Form2();
+            inicio.Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
