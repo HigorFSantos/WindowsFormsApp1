@@ -36,11 +36,16 @@ namespace WindowsFormsApp1
             this.btnDia = new System.Windows.Forms.Button();
             this.btnUsdb = new System.Windows.Forms.Button();
             this.btnHoras = new System.Windows.Forms.Button();
+            this.lstUsd = new System.Windows.Forms.ListView();
+            this.lstHoras = new System.Windows.Forms.ListView();
+            this.lstBrl = new System.Windows.Forms.ListView();
+            this.lstData = new System.Windows.Forms.ListView();
+            this.lstCep = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(124, 317);
+            this.btnBuscar.Location = new System.Drawing.Point(181, 356);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 13;
@@ -51,7 +56,7 @@ namespace WindowsFormsApp1
             // lblCep
             // 
             this.lblCep.AutoSize = true;
-            this.lblCep.Location = new System.Drawing.Point(76, 276);
+            this.lblCep.Location = new System.Drawing.Point(116, 315);
             this.lblCep.Name = "lblCep";
             this.lblCep.Size = new System.Drawing.Size(31, 13);
             this.lblCep.TabIndex = 12;
@@ -59,14 +64,14 @@ namespace WindowsFormsApp1
             // 
             // txtCep
             // 
-            this.txtCep.Location = new System.Drawing.Point(113, 273);
+            this.txtCep.Location = new System.Drawing.Point(165, 312);
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(100, 20);
             this.txtCep.TabIndex = 11;
             // 
             // btnUsd
             // 
-            this.btnUsd.Location = new System.Drawing.Point(194, 186);
+            this.btnUsd.Location = new System.Drawing.Point(357, 154);
             this.btnUsd.Name = "btnUsd";
             this.btnUsd.Size = new System.Drawing.Size(75, 23);
             this.btnUsd.TabIndex = 10;
@@ -76,7 +81,7 @@ namespace WindowsFormsApp1
             // 
             // btnDia
             // 
-            this.btnDia.Location = new System.Drawing.Point(194, 110);
+            this.btnDia.Location = new System.Drawing.Point(357, 12);
             this.btnDia.Name = "btnDia";
             this.btnDia.Size = new System.Drawing.Size(75, 36);
             this.btnDia.TabIndex = 9;
@@ -86,7 +91,7 @@ namespace WindowsFormsApp1
             // 
             // btnUsdb
             // 
-            this.btnUsdb.Location = new System.Drawing.Point(69, 186);
+            this.btnUsdb.Location = new System.Drawing.Point(12, 154);
             this.btnUsdb.Name = "btnUsdb";
             this.btnUsdb.Size = new System.Drawing.Size(75, 23);
             this.btnUsdb.TabIndex = 8;
@@ -96,19 +101,70 @@ namespace WindowsFormsApp1
             // 
             // btnHoras
             // 
-            this.btnHoras.Location = new System.Drawing.Point(69, 110);
+            this.btnHoras.Location = new System.Drawing.Point(13, 12);
             this.btnHoras.Name = "btnHoras";
-            this.btnHoras.Size = new System.Drawing.Size(75, 36);
+            this.btnHoras.Size = new System.Drawing.Size(75, 58);
             this.btnHoras.TabIndex = 7;
             this.btnHoras.Text = "Que Horas São?";
             this.btnHoras.UseVisualStyleBackColor = true;
             this.btnHoras.Click += new System.EventHandler(this.btnHoras_Click);
             // 
+            // lstUsd
+            // 
+            this.lstUsd.HideSelection = false;
+            this.lstUsd.Location = new System.Drawing.Point(93, 152);
+            this.lstUsd.Name = "lstUsd";
+            this.lstUsd.Size = new System.Drawing.Size(121, 111);
+            this.lstUsd.TabIndex = 20;
+            this.lstUsd.UseCompatibleStateImageBehavior = false;
+            // 
+            // lstHoras
+            // 
+            this.lstHoras.HideSelection = false;
+            this.lstHoras.Location = new System.Drawing.Point(94, 12);
+            this.lstHoras.Name = "lstHoras";
+            this.lstHoras.Size = new System.Drawing.Size(121, 111);
+            this.lstHoras.TabIndex = 21;
+            this.lstHoras.UseCompatibleStateImageBehavior = false;
+            // 
+            // lstBrl
+            // 
+            this.lstBrl.HideSelection = false;
+            this.lstBrl.Location = new System.Drawing.Point(230, 152);
+            this.lstBrl.Name = "lstBrl";
+            this.lstBrl.Size = new System.Drawing.Size(121, 111);
+            this.lstBrl.TabIndex = 22;
+            this.lstBrl.UseCompatibleStateImageBehavior = false;
+            // 
+            // lstData
+            // 
+            this.lstData.HideSelection = false;
+            this.lstData.Location = new System.Drawing.Point(230, 12);
+            this.lstData.Name = "lstData";
+            this.lstData.Size = new System.Drawing.Size(121, 111);
+            this.lstData.TabIndex = 23;
+            this.lstData.UseCompatibleStateImageBehavior = false;
+            // 
+            // lstCep
+            // 
+            this.lstCep.HideSelection = false;
+            this.lstCep.Location = new System.Drawing.Point(283, 312);
+            this.lstCep.Name = "lstCep";
+            this.lstCep.Size = new System.Drawing.Size(121, 111);
+            this.lstCep.TabIndex = 24;
+            this.lstCep.UseCompatibleStateImageBehavior = false;
+            this.lstCep.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 450);
+            this.ClientSize = new System.Drawing.Size(444, 450);
+            this.Controls.Add(this.lstCep);
+            this.Controls.Add(this.lstData);
+            this.Controls.Add(this.lstBrl);
+            this.Controls.Add(this.lstHoras);
+            this.Controls.Add(this.lstUsd);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblCep);
             this.Controls.Add(this.txtCep);
@@ -132,5 +188,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnDia;
         private System.Windows.Forms.Button btnUsdb;
         private System.Windows.Forms.Button btnHoras;
+        private System.Windows.Forms.ListView lstUsd;
+        private System.Windows.Forms.ListView lstHoras;
+        private System.Windows.Forms.ListView lstBrl;
+        private System.Windows.Forms.ListView lstData;
+        private System.Windows.Forms.ListView lstCep;
     }
 }

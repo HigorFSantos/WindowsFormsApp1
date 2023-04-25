@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
+        DateTime now = DateTime.Now;
+
         public Form2()
         {
             InitializeComponent();
@@ -27,7 +30,10 @@ namespace WindowsFormsApp1
                 {
                     WebClient client = new WebClient();
                     var content = client.DownloadString("https://viacep.com.br/ws/" + cep + "/json/");
-                    MessageBox.Show(content);
+                    Endereco end = JsonConvert.DeserializeObject<Endereco>(content);
+                    MessageBox.Show(end.logradouro + end.cep + end.bairro);
+
+                    lstCep.Items.Add(end.logradouro + "/n" + end.cep + end.bairro + now.ToString("dd/MM/yyyy | HH:mm"));
                 }
                 else
                 {
@@ -47,16 +53,16 @@ namespace WindowsFormsApp1
         private void btnHoras_Click(object sender, EventArgs e)
         {
             {
-                DateTime now = DateTime.Now;
                 MessageBox.Show(now.ToString("HH:mm"));
+                lstHoras.Items.Add(now.ToString("dd/MM/yyyy | HH:mm"));
             }
         }
 
         private void btnDia_Click(object sender, EventArgs e)
         {
             {
-                DateTime now = DateTime.Now;
                 MessageBox.Show(now.ToString("dd/MM/yyyy"));
+                lstData.Items.Add(now.ToString("dd/MM/yyyy | HH:mm"));
             }
         }
 
@@ -66,6 +72,8 @@ namespace WindowsFormsApp1
                 WebClient client = new WebClient();
                 var content = client.DownloadString("https://economia.awesomeapi.com.br/json/last/USD-BRL");
                 MessageBox.Show(content);
+                lstUsd.Items.Add(content + now.ToString("dd/MM/yyyy | HH:mm"));
+                
             }
         }
 
@@ -75,7 +83,13 @@ namespace WindowsFormsApp1
                 WebClient client = new WebClient();
                 var content = client.DownloadString("https://economia.awesomeapi.com.br/json/last/BRL-USD");
                 MessageBox.Show(content);
+                lstBrl.Items.Add(content + now.ToString("dd/MM/yyyy | HH:mm"));
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
